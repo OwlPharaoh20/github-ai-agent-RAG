@@ -1,0 +1,15 @@
+[project]
+name = "github-ai-agent"
+version = "0.1.0"
+description = "agentic vibe"
+authors = [
+    {name = "GG-Pharaoh",email = "oxdiablo20@gmail.com"}
+]
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+]
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
