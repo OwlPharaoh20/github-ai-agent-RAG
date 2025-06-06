@@ -31,6 +31,34 @@ def fetch_github(owner, repo, endpoint):
     print(data)
     return data 
 
+#Function to fetch github issues by owner and repo
+def fetch_github_issues(owner, repo):
+    data = fetch_github(owner, repo, "issues")
+    return load_issues(data)
+
+
+
+#Function to load github issues from data
+def load_issues(issues):
+    docs = []
+    for entry in issues:
+        metadata = {
+            "author": entry["user"]["login"],
+            "comments": entry["comments"],
+            "body": entry["body"],
+            "labels": entry["labels"],
+            "created_at": entry["created_at"],
+   
+        }
+        data = entry["title"]
+        if entry["body"]:
+            data += entry["body"]
+        doc = Document(page_content=data, metadata=metadata)
+        docs.append(doc)
+    return docs
+
+
+
 
 
 
